@@ -1,0 +1,23 @@
+
+{
+    "manifest_version": 3,
+    "name": "Minha Extensão de Temporizador para Google Meet",
+    "version": "1.0",
+    "description": "Uma extensão para iniciar um temporizador em reuniões do Google Meet",
+    "permissions": [
+        "tabs",
+        "scripting",
+        "notifications"
+    ],
+    "host_permissions": [
+        "*://meet.google.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "icons/pequeno.png",
+        "48": "icons/medio.png",
+        "128": "icons/grande.png"
+    }
+}

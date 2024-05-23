@@ -1,3 +1,5 @@
+//teste de comentario
+
 function isGoogleMeet(url) {
     return url.startsWith("https://meet.google.com/");
 }

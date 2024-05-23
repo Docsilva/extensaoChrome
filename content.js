@@ -1,5 +1,6 @@
-const crisisTypes = ["Crise A", "Crise B", "Crise C", "Crise D"];
 
+const crisisTypes = ["Crise A", "Crise B", "Crise C", "Crise D"];
+//teste de comentario
 // Função para adicionar os estilos CSS ao documento
 function addStyles() {
     const style = document.createElement('link');

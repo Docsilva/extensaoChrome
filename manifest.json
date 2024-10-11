@@ -1,13 +1,13 @@
-
 {
     "manifest_version": 3,
-    "name": "Minha Extensão de Temporizador para Google Meet",
-    "version": "1.0",
-    "description": "Uma extensão para iniciar um temporizador em reuniões do Google Meet",
+    "name": "Temporizador - WarRoom NATIS",
+    "version": "4.0.0",
+    "description": "Uma extensão para iniciar um temporizador em reuniões do Google Meet para equipe de NATIS",
     "permissions": [
-        "tabs",
-        "scripting",
-        "notifications"
+        "activeTab",
+        "storage",
+        "notifications",
+        "tabs"
     ],
     "host_permissions": [
         "*://meet.google.com/*"
@@ -15,9 +15,23 @@
     "background": {
         "service_worker": "background.js"
     },
+    "action": {
+        "default_icon": {
+            "16": "icons/pequeno.png",
+            "48": "icons/medio.png",
+            "128": "icons/grande.png"
+        }
+    },
     "icons": {
         "16": "icons/pequeno.png",
         "48": "icons/medio.png",
         "128": "icons/grande.png"
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://meet.google.com/*"],
+            "js": ["content.js"],
+            "css": ["content.css"]
+        }
+    ]
 }

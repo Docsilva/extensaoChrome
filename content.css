@@ -1,34 +1,234 @@
-#initial-popup, #timer-popup, #notification-popup, #crisis-popup {
-    font-family: Arial, sans-serif;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+/* CSS for the popup reminder */
+.popup-reminder {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffcc; /* Cor principal do popup */
+    border: 1px solid #ff6347;
     padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
     z-index: 1000;
+    text-align: center;
+    animation: blink 1s infinite; /* Chama a animação de piscar */
 }
 
-#initial-popup h3, #notification-popup p, #timer-popup select, #timer-popup button, #notification-popup button, #crisis-popup select, #crisis-popup button {
+/* Animação para piscar entre a cor original e uma cor mais clara */
+@keyframes blink {
+    0% {
+        background-color: #ffffcc; /* Cor principal */
+    }
+    50% {
+        background-color: #f3f3e4; /* Tom mais claro da mesma cor */
+    }
+    100% {
+        background-color: #f7f798; /* Retorna à cor principal */
+    }
+}
+
+.popup-reminder h3 {
     margin: 0;
-    margin-bottom: 10px;
-    font-size: 18px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    color: #ff6347; /* Cor do texto para destacar */
 }
 
-#timer-popup select, #timer-popup button, #notification-popup button, #crisis-popup select, #crisis-popup button {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+.popup-reminder p {
+    margin: 0 0 20px;
+    font-size: 1.2em;
+    color: #ff6347;
 }
 
-#timer-popup button, #notification-popup button, #crisis-popup button {
-    background-color: #4285F4;
-    color: white;
+.popup-reminder .button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #333;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
 
-#timer-popup button:hover, #notification-popup button:hover, #crisis-popup button:hover {
-    background-color: #357AE8;
+.popup-reminder .button:hover {
+    background-color: #555;
+}
+
+
+
+.button {
+    display: inline-block;
+    margin: 8px 4px 0; 
+    padding: 8px 16px; 
+    font-size: 100%; 
+    color: #ffffff;
+    background-color: #333333; 
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#start-critical-incident {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff0000; /* cor de destaque para o botão */
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2000; /* Garante que o botão fique acima de outros elementos */
+}
+
+.popup {
+    position: absolute; /* Permite arrastar livremente */
+    top: 50px; /* Posição inicial do popup */
+    left: 50px; /* Posição inicial do popup */
+    width: 300px; /* Largura fixa */
+    height: auto; /* Altura fixa */
+    background-color: #ffffcc; /* Cor do fundo */
+    border: 2px solid #000000; /* Borda */
+    padding: 16px; /* Padding */
+    z-index: 1000; /* Sobrepõe outros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    box-sizing: border-box; /* Inclui padding e bordas no tamanho total */
+    cursor: grab; /* Muda o cursor para indicar que é arrastável */
+}
+
+.popup-right, .popup-left, .popup-center {
+    position: fixed;
+    top: 2%;
+    width: auto; /* Ajusta automaticamente a largura do popup */
+    max-width: auto; /* Ajusta a largura máxima */
+    background-color: #ffffcc;
+    border: 2px solid #000000;
+    padding: 16px;
+    z-index: 1000; /* Aumenta o z-index para sobrepor outros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 100%;
+    text-align: center; /* Adicionado para centralizar o texto */
+    box-sizing: border-box; /* Inclui o padding e a borda no tamanho total */
+}
+
+.popup-right {
+    right: 20%;
+}
+
+.popup-left {
+    left: 20%;
+}
+
+.popup-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.popup-crisis-list {
+    max-width: 80%; /* Ajusta a largura máxima do popup de lista de crises */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.crisis-list {
+    list-style-type: circle;
+    padding: 0;
+    margin: 0;
+}
+
+.crisis-item {
+    margin: 8px 0; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.popup h3 {
+    margin: 0 0 8px; 
+    font-size: 100%; 
+}
+
+.popup p {
+    margin: 0 0 8px; 
+    font-size: 100%; 
+}
+
+.button-yes {
+    background-color: #28a745; 
+}
+
+.button-no {
+    background-color: #dc3545; 
+}
+
+.start-button {
+    display: block; 
+    width: 100%; 
+    margin-top: 16px; 
+    background-color: #333333; 
+}
+
+.select {
+    display: block;
+    margin: 8px 0; 
+    padding: 8px; 
+    font-size: 100%; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#timer-display {
+    position: absolute; /* Permite arrastar livremente */
+    top: 2%; 
+    left: 2%; /* Evita que fique preso à direita */
+    background-color: #ffffcc;
+    border: 2px solid #000000;
+    padding: 8px; 
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: move; /* Mostra que o popup é arrastável */
+}
+
+#timer-display p {
+    margin: 0;
+    font-size: 100%; 
+}
+
+#pause-button {
+    margin-top: 8px; 
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px; 
+    border-radius: 5px;
+}
+
+#interrupt-button {
+    position: absolute;
+    top: -22px; /* Posiciona o botão mais acima do popup */
+    right: -22px; /* Posiciona o botão mais à direita do popup */
+    background-color: #ff4444; /* Fundo vermelho para o botão */
+    color: #ffffff; /* Cor branca para o "X" */
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px 8px;
+    border-radius: 50%; /* Torna o botão circular */
+    z-index: 1001; /* Garante que o botão fique acima do popup */
+}
+
+/* Estilos opcionais para uma experiência de arraste */
+#popup-temporizador {
+    width: 300px; /* Tamanho fixo ou preferencial */
+    height: 200px; /* Altura fixa */
+    position: absolute;
+    top: 50px; /* Ajuste conforme necessário */
+    left: 50px; /* Ajuste conforme necessário */
+    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    resize: none; /* Evita que seja redimensionado */
+    opacity: 0.8; /* Torna o popup semitransparente ao arrastar */
+    cursor: grabbing; /* Muda o cursor */
 }
